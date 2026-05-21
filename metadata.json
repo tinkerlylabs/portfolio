@@ -1,0 +1,6 @@
+{
+  "name": "Jensen Omega Portfolio",
+  "description": "Polished, fully responsive developer portfolio website for Jensen Omega, implementing a modern aesthetic, skills showpiece, interactive project cards, and a sleek dark theme.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
