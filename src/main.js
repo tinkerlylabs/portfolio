@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-// Native TypeScript interactive controls for Jensen Omega portfolio
+// Native JavaScript interactive controls for Jensen Omega portfolio
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Navigation & Smooth Scroll Offset
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScrollHighlight);
   handleScrollHighlight(); // initial call
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       const offset = 80; // height of sticky header
@@ -65,6 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
         top: offsetPosition,
         behavior: 'smooth'
       });
+    }
+  };
+
+  // Close mobile menu helper
+  const closeMobileMenu = () => {
+    const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+    const mobileMenuIconOpen = document.getElementById('mobile-menu-icon-open');
+    const mobileMenuIconClose = document.getElementById('mobile-menu-icon-close');
+    if (mobileMenuPanel) {
+      mobileMenuPanel.classList.add('hidden');
+      mobileMenuPanel.classList.remove('block');
+      mobileMenuIconOpen?.classList.remove('hidden');
+      mobileMenuIconClose?.classList.add('hidden');
     }
   };
 
@@ -98,15 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         closeMobileMenu();
       }
-    }
-  };
-
-  const closeMobileMenu = () => {
-    if (mobileMenuPanel) {
-      mobileMenuPanel.classList.add('hidden');
-      mobileMenuPanel.classList.remove('block');
-      mobileMenuIconOpen?.classList.remove('hidden');
-      mobileMenuIconClose?.classList.add('hidden');
     }
   };
 
@@ -168,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 4. Monochrome Contact Form Submission
-  const contactForm = document.getElementById('contact-form') as HTMLFormElement | null;
+  const contactForm = document.getElementById('contact-form');
   const submitBtn = document.getElementById('contact-submit-btn');
   const submitTextDefault = document.getElementById('submit-text-default');
   const submitTextLoading = document.getElementById('submit-text-loading');
@@ -178,9 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     
     // Read input elements
-    const nameInput = document.getElementById('form-name') as HTMLInputElement | null;
-    const emailInput = document.getElementById('form-email') as HTMLInputElement | null;
-    const messageInput = document.getElementById('form-message') as HTMLTextAreaElement | null;
+    const nameInput = document.getElementById('form-name');
+    const emailInput = document.getElementById('form-email');
+    const messageInput = document.getElementById('form-message');
 
     if (!nameInput?.value || !emailInput?.value || !messageInput?.value) return;
 
